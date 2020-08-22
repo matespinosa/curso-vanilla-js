@@ -13,6 +13,10 @@ var _Chararcter = _interopRequireDefault(require("../pages/Chararcter"));
 
 var _Error = _interopRequireDefault(require("../pages/Error404"));
 
+var _getHash = _interopRequireDefault(require("../utils/getHash"));
+
+var _resolveRoutes = _interopRequireDefault(require("../utils/resolveRoutes"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var routes = {
@@ -22,7 +26,7 @@ var routes = {
 };
 
 var router = function router() {
-  var header, content;
+  var header, content, hash, route, render;
   return regeneratorRuntime.async(function router$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -34,8 +38,20 @@ var router = function router() {
 
         case 4:
           header.innerHTML = _context.sent;
+          hash = (0, _getHash["default"])();
+          _context.next = 8;
+          return regeneratorRuntime.awrap((0, _resolveRoutes["default"])(hash));
 
-        case 5:
+        case 8:
+          route = _context.sent;
+          render = routes[route] ? routes[route] : _Error["default"];
+          _context.next = 12;
+          return regeneratorRuntime.awrap(render());
+
+        case 12:
+          content.innerHTML = _context.sent;
+
+        case 13:
         case "end":
           return _context.stop();
       }

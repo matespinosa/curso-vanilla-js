@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 
 var Error404 = function Error404() {
-  var view = "\n        <div class=\"Error404>\n            <h2>Error 404</404>\n        </div>\n    ";
+  var view = "\n        <div class=\"Error404\">\n            <h2>Error 404</h2>\n        </div>\n    ";
   return view;
 };
 

@@ -4,6 +4,8 @@ var path = require('path');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
 var _require = require('path'),
     resolve = _require.resolve;
 
@@ -29,5 +31,10 @@ module.exports = {
     inject: true,
     template: './public/index.html',
     filename: './index.html'
+  }), new CopyWebpackPlugin({
+    patterns: [{
+      from: './src/styles/styles.css',
+      to: " "
+    }]
   })]
 };
